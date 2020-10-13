@@ -3,7 +3,7 @@ package com.example.quotesproject.ui.quotes
 import com.example.quotesproject.data.FakeQuoteDao
 import com.example.quotesproject.data.Quote
 
-class QuoteRepository private constructor(private val quoteDao : FakeQuoteDao) {
+class QuoteRepository private constructor(private val quoteDao: FakeQuoteDao) {
 
     fun addQuote(quote: Quote) {
         quoteDao.addQuote(quote)
@@ -16,7 +16,7 @@ class QuoteRepository private constructor(private val quoteDao : FakeQuoteDao) {
         @Volatile
         private var instance: QuoteRepository? = null
 
-        fun getInstance() = instance ?: synchronized(this) {
+        fun getInstance(quoteDao: FakeQuoteDao) = instance ?: synchronized(this) {
             instance ?: QuoteRepository(quoteDao = FakeQuoteDao()).also { instance = it }
         }
 
