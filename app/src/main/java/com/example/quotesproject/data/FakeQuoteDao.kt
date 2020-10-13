@@ -13,11 +13,11 @@ class FakeQuoteDao {
     }
 
     //Function to add Quote
-    fun addQuote(quote: Quote){
+    fun addQuote(quote: Quote) {
         //add quote
         quoteList.add(quote)
         //update list
-        quotes.value=quoteList
+        quotes.value = quoteList
     }
 
     //Function to display quotes
